@@ -113,6 +113,11 @@ func (c *helperClient) Close() error {
 	return c.client.Close()
 }
 
+// QueryAsChunk
+func (c *helperClient) QueryAsChunk(q influxClient.Query) (*influxClient.ChunkedResponse, error) {
+	return c.client.QueryAsChunk(q)
+}
+
 // UseDB sets the DB to use for Query, WritePoint, and WritePointTagsFields
 func (c *helperClient) UseDB(db string) Client {
 	if c.using == nil {
